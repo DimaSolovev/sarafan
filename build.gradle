@@ -26,6 +26,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-security:2.6.7'
 	implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.5.5'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.7.0'
+	implementation group: 'org.springframework.session', name: 'spring-session-jdbc', version: '2.7.0'
 }
 
 tasks.named('test') {
