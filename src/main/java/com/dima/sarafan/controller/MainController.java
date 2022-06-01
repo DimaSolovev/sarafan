@@ -34,8 +34,6 @@ public class MainController {
 
         model.addAttribute("frontendData", data);
         model.addAttribute("isDevMode", "dev".equals(profile));
-        //model.addAttribute("isDevMode", true);
-
 
         return "index";
     }
