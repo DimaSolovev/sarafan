@@ -1,14 +1,20 @@
 <template>
-    <div>
-        <i>({{ message.id }})</i> {{ message.text }}
-        <span style="position: absolute; right: 0">
-            <input type="button" value="Edit" @click="edit" />
-            <input type="button" value="X" @click="del" />
-        </span>
-    </div>
+    <v-card class="my-2">
+        <v-card-text primary-title>
+            <i>({{ message.id }})</i>
+            {{ message.text }}
+        </v-card-text>
+
+        <v-card-actions>
+            <v-btn rounded @click="edit" small flat>Edit</v-btn>
+            <v-btn rounded @click="del" small>Delete</v-btn>
+        </v-card-actions>
+    </v-card>
 </template>
 
 <script>
+    import {mdiExitToApp} from "@mdi/js";
+
     export default {
         props: ['message', 'editMessage', 'deleteMessage', 'messages'],
         methods: {
