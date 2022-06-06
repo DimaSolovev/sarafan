@@ -1,7 +1,6 @@
 import SockJS from 'sockjs-client'
 import { Stomp } from '@stomp/stompjs'
 
-
 let stompClient = null
 const handlers = []
 
