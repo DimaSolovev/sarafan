@@ -9,6 +9,7 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "@mdi/js": "^6.7.96",
     "@stomp/stompjs": "^6.1.2",
     "file-loader": "^6.2.0",
@@ -16,7 +17,7 @@
     "vue": "^2.5.17",
     "vue-resource": "^1.5.1",
     "vuetify": "^2.6.6",
-    "vuex": "^4.0.2"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

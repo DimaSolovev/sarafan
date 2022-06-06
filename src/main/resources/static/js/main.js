@@ -1,21 +1,20 @@
 import Vue from 'vue'
+import Vuetify from 'vuetify'
+import '@babel/polyfill'
 import 'api/resource'
 import App from 'pages/App.vue'
-import {connect } from "./pages/util/ws";
-import Vuetify from "vuetify";
+import store from 'store/store'
+import { connect} from "./pages/util/ws";
 import 'vuetify/dist/vuetify.min.css'
 
-if(frontendData.profile){
+if (frontendData.profile) {
     connect()
 }
 
-Vue.use(Vuetify, {
-    iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
-})
+Vue.use(Vuetify)
 
 new Vue({
     el: '#app',
-    render: a => a(App),
-    vuetify: new Vuetify({})
+    store,
+    render: a => a(App)
 })
-
