@@ -1,15 +1,15 @@
 import SockJS from 'sockjs-client'
 import { Stomp } from '@stomp/stompjs'
 
+
 let stompClient = null
 const handlers = []
 
 export function connect() {
     const socket = new SockJS('/gs-guide-websocket')
     stompClient = Stomp.over(socket)
-    stompClient.debug = () =>{}
+    stompClient.debug = () => {}
     stompClient.connect({}, frame => {
-        console.log('Connected: ' + frame)
         stompClient.subscribe('/topic/activity', message => {
             handlers.forEach(handler => handler(JSON.parse(message.body)))
         })
