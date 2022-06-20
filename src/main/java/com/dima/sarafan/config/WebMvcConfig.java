@@ -1,4 +1,4 @@
-package com.dima.sarafan.config;
+package letscode.sarafan.config;
 
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
