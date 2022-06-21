@@ -1,6 +1,7 @@
 package com.dima.sarafan.controller;
 
 import com.dima.sarafan.domain.User;
+import com.dima.sarafan.domain.UserSubscription;
 import com.dima.sarafan.domain.Views;
 import com.dima.sarafan.service.ProfileService;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("profile")
@@ -37,5 +40,22 @@ public class ProfileController {
         } else {
             return profileService.changeSubscription(channel, subscriber);
         }
+    }
+
+    @GetMapping("get-subscribers/{channelId}")
+    @JsonView(Views.IdName.class)
+    public List<UserSubscription> subscribers(
+            @PathVariable("channelId") User channel
+    ) {
+        return profileService.getSubscribers(channel);
+    }
+
+    @PostMapping("change-status/{subscriberId}")
+    @JsonView(Views.IdName.class)
+    public UserSubscription changeSubscriptionStatus(
+            @AuthenticationPrincipal User channel,
+            @PathVariable("subscriberId") User subscriber
+    ) {
+        return profileService.changeSubscriptionStatus(channel, subscriber);
     }
 }
